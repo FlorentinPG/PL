@@ -17,15 +17,27 @@ function addLogging(code) {
 
 function addBeforeCode(node) {
     const name = node.id ? node.id.name : '<anonymous function>';
-    const beforeCode = "console.log('Entering " + name + "()');";
+    const argumentsData = getArgumentsData(node.params);
+    const beforeCode = "console.log('Entering " + name + argumentsData + "');";
     const beforeNodes = espree.parse(beforeCode).body;
     node.body.body = beforeNodes.concat(node.body.body);
+}
+
+function getArgumentsData(node) {
+    let data = " ";
+    for(let i = 0; i < node.length; i++) {
+        data = data + "${ " + `${node[i].name}` + " }"
+        if (i+1 < node.length) {
+            data += ",";
+        }
+    }
+    return data;
 }
 
 console.log(addLogging(`
 function foo(a, b) {   
   var x = 'blah';   
-  var y = (function () {
+  var y = (function (z) {
     return 3;
   })();
 }
