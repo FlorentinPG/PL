@@ -1,0 +1,18 @@
+{
+  "name": "Esprima_Logging",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "Florentín Pérez González",
+  "license": "ISC",
+  "dependencies": {
+    "acorn": "^6.0.7",
+    "escodegen": "^1.11.0",
+    "escope": "^3.6.0",
+    "espree": "^5.0.0",
+    "esprima": "^4.0.1",
+    "estraverse": ">= 1.3.0",
+    "pegjs": ">= 0.7.0",
+    "readline": "^1.3.0",
+    "underscore": ">= 1.5.1"
+  }
+}
