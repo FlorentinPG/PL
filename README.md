@@ -60,3 +60,8 @@ ejecución:
 - `parse(arg)`: Perteneciente al compilador ***espree***, es la responsable del análisis léxico del código que se le pasa como argumento. Devuelve el árbol resultante de la operación.
 - `traverse(arg1, arg2)`: Perteneciente a ***estraverse***, es el procedimiento encargado de atravesar el árbol léxico que se le pasa como *arg1*. *arg2* es usado para indicar una acción que debe realizar con cada nodo según lo atraviesa, en concreto, determinar si su tipo es el deseado y en caso afirmativo, dar paso a la función encargada de incrustar el código.
 - `generate(arg)`: Perteneciente al generador de código ***escodegen***, es el método que se encarga de crear el código equivalente a un árbol léxico indicado mediante *arg*.
+
+---
+##### Conclusiones breves
+Con la realización de esta práctica se ha aprendido la capacidad de acción que tiene el control y dominio de los compiladores y analizadores para construir herramientas de metaprogramación u otro tipo de programas. En concreto, se ha profundizado en la acción que produce el análisis léxico de programa y en el árbol resultante de esta operación. Como se ha visto con la aplicación de este programa, una correcta interpretación del árbol generado permite al programador detectar fácilmente ciertos elementos existentes en el código que se analiza y, si así lo desea, modificarlo realizando cambios en la estructura del árbol generado o en alguno de sus nodos. A su vez, se ha aprendido la acción de los generadores de código: su capacidad para generar código equivalente al árbol resultante de un análisis léxico. 
+En definitiva, podemos afirmar que la combinación de ambas herramientas supone un importante recurso para los programadores que no debería infravalorarse.
