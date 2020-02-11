@@ -1,7 +1,7 @@
 {
   "name": "p0-loggin-espree",
   "version": "1.0.0",
-  "description": "Programa que informa sobre el flujo de ejecución de un programa aprovechando la funcionalidad de los analizadores léxicos.",
+  "description": "Programa que genera código equivalente a otro, con la diferencia de que se añaden sentencias que informan sobre el flujo de control.",
   "main": "logging-espree.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
