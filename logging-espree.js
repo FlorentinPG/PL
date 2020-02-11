@@ -2,6 +2,8 @@ const escodegen = require('escodegen');
 const espree = require('espree');
 const estraverse = require('estraverse');
 const fs = require('fs');
+const program = require('commander');
+const {version, description} = require('./package.json');
 
 function addLogging(code) {
     const ast = espree.parse(code);
@@ -35,45 +37,18 @@ function getArgumentsData(node) {
     return data;
 }
 
-var helpNeeded = false;
-var inputFile = "";
-var outputFile = "out.js";
-var isUnkown = false;
-for (var i = 2; i < process.argv.length; i++) {
-    switch (process.argv[i]) {
-        case '-i':
-        case '--input':
-            inputFile = process.argv[++i];
-            break;
-        case '-o':
-        case '--output':
-            outputFile = process.argv[++i];
-            break;
-        case '-h':
-        case '--help':
-            helpNeeded = true;
-            break;
-        default:
-            console.log("Unkown option detected");
-            isUnkown = true;
-            break;
-    }
-}
+program
+    .usage('<file> [options]')
+    .version(version)
+    .description(description)
+    .option('-o, --output <fileName>', 'fichero de salida','out.js');
+    program.parse(process.argv);
 
-if(helpNeeded || process.argv.length == 2 || isUnkown) {
-    console.log(`Usage: logging-espree.js [options]\n
-Options:\n
-    -i, --input <filename>\t\tSpecify the input file.\n
-    -o, --output <filename>\t\tSpecify the output file. By defect, "out.js".\n
-    -h, --help\t\t\t\tOutput usage information.`)
-}else if (!inputFile) {
-    console.log(`You have to specify an input file. Check the program help with -h or the --help options to know more about.`)
-}else {
-    let archivo = fs.readFileSync(inputFile, 'utf-8');
-    fs.writeFile(outputFile,addLogging(archivo), error => {
-        if (error)
-            console.log(error);
-        else 
-            console.log(`The output file, "${outputFile}", has been created successfully.`);
-    });
-}
+    if(program.args.length != 1) {
+        program.help();
+    }
+
+    const fileName = program.args.shift();
+    const outputFile = program.output;
+    console.log(outputFile);
+
