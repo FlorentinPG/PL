@@ -1,16 +1,18 @@
-# Conclusiones Práctica P0-t0-esprima-logging
-#### Autor: Florentín Pérez González
-#### Fecha: 06/02/2020
-#### Asignatura: Procesadores de Lenguajes
+<div class=text-justify>
+
+  # Conclusiones Práctica P0-t0-esprima-logging
+### Autor: Florentín Pérez González
+### Fecha: 06/02/2020
+### Asignatura: Procesadores de Lenguajes
 
 ---
-##### Aplicación del programa
+#### Aplicación del programa
 El programa *logging-espree.js* tiene como finalidad permitir al usuario, en concreto a un programador, realizar un seguimiento
 del flujo del control de los pogramas que este escriba en __JavasSript__. Ello lo hace mediante la identificación de las distintas
 funciones que se definen en un código y que el programador pasa como entrada al programa, incluyendo al comienzo de cada una de ellas una sentencia para mostrar el nombre de la función en sí. Es importante destacar, que estas modificaciones no se realizan al código original, sino que se origina un nuevo fichero con el código modificado. Es la ejecución de este, la que permitirá al programador comprobar el flujo de ejecución de su programa a través de las sentencias previamente mencionadas que muestran un mensaje único cada vez que se acceda a cualquier función definida. En concreto, estos mensajes aparecen a través de la consola del navegador si se ejecuta en uno; o bien en una terminal local si se ejecuta el código generado a través de __NodeJS__.
 
 ---
-##### Funcionamiento del programa
+#### Funcionamiento del programa
 El programa funciona aprovechando las funcionalidades del compilador ***espree**, en concreto, su capacidad para generar análisis
 léxicos de fragmentos de código, generando en el proceso un árbol representativo del mismo. Cada uno de los nodos de dicho árbol
 representa un aspecto de la estructura del código: Declaraciones de variables, definiciones de funciones, llamadas a funciones...
@@ -53,7 +55,7 @@ el proceso contrario al compilador **espree**. Tras este último paso, la funcio
 del mismo un nuevo fichero con el código modificado.
 
 ---
-##### Funciones principales
+#### Funciones principales
 A continuación se expondrán las funciones/métodos responsables de las principales tareas/acciones que realiza el programa durante su
 ejecución:
 
@@ -62,6 +64,7 @@ ejecución:
 - `generate(arg)`: Perteneciente al generador de código ***escodegen***, es el método que se encarga de crear el código equivalente a un árbol léxico indicado mediante *arg*.
 
 ---
-##### Conclusiones breves
+#### Conclusiones breves
 Con la realización de esta práctica se ha aprendido la capacidad de acción que tiene el control y dominio de los compiladores y analizadores para construir herramientas de metaprogramación u otro tipo de programas. En concreto, se ha profundizado en la acción que produce el análisis léxico de programa y en el árbol resultante de esta operación. Como se ha visto con la aplicación de este programa, una correcta interpretación del árbol generado permite al programador detectar fácilmente ciertos elementos existentes en el código que se analiza y, si así lo desea, modificarlo realizando cambios en la estructura del árbol generado o en alguno de sus nodos. A su vez, se ha aprendido la acción de los generadores de código: su capacidad para generar código equivalente al árbol resultante de un análisis léxico. 
 En definitiva, podemos afirmar que la combinación de ambas herramientas supone un importante recurso para los programadores que no debería infravalorarse.
+</div>
