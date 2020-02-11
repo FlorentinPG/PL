@@ -27,6 +27,7 @@
   "homepage": "https://github.com/ULL-ESIT-PL-1920/p0-t0-esprima-logging-alu0101100654#readme",
   "dependencies": {
     "acorn": "^7.1.0",
+    "commander": "^4.1.1",
     "escodegen": "^1.14.1",
     "espree": "^6.1.2",
     "esprima": "^4.0.1",
