@@ -1,4 +1,4 @@
-<div style="text-align: justify;">
+<div style="text-align: justify">
 
   # Conclusiones Práctica P0-t0-esprima-logging
 ### Autor: Florentín Pérez González
