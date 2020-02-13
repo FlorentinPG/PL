@@ -6,7 +6,7 @@ const program = require('commander');
 const {version, description} = require('./package.json');
 
 function addLogging(code) {
-  const ast = espree.parse(code);
+  const ast = espree.parse(code, {loc:true});
   estraverse.traverse(ast, {
     enter: function(node, parent) {
       if (node.type === 'FunctionDeclaration' ||
@@ -21,9 +21,14 @@ function addLogging(code) {
 function addBeforeCode(node) {
   const name = node.id ? node.id.name : '<anonymous function>';
   const argumentsData = getArgumentsData(node.params);
-  const beforeCode = "console.log(`Entering " + name + argumentsData + "`);";
+  const line = getLine(node.loc);
+  const beforeCode = "console.log(`Entering " + name + argumentsData + " Línea: " + line + "`);";
   const beforeNodes = espree.parse(beforeCode, {ecmaVersion:6}).body;
   node.body.body = beforeNodes.concat(node.body.body);
+}
+
+function getLine(node) {
+  return `${node.start.line}`
 }
 
 function getArgumentsData(node) {
